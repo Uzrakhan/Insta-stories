@@ -7,6 +7,22 @@ const Stories = () => {
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [progress, setProgress] = useState(0);
     const [isLoading, setIsLoading] = useState(true)
+    const [touchStart, setTouchStart] = useState(0);
+
+    //swipe detection
+    const handleTouchStart = (e) => {
+        setTouchStart(e.touches[0].clientX);
+    };
+
+    const handleTouchEnd = (e) => {
+        const touchEnd = e.changedTouches[0].clientX;
+        const delta = touchStart - touchEnd;
+
+        if (Math.abs(delta) > 50) { // Minimum swipe distance
+            delta > 0 ? handleNext() : handlePrev()
+        }
+    }
+
 
     //auto-advance stories
     useEffect(() => {
@@ -52,7 +68,10 @@ const Stories = () => {
     const handleImgLoad = () => {
         setIsLoading(false);
         setProgress(0)
-    }
+    };
+
+    const currentStory = storiesData[currentStoryIndex];
+
     return (
         <div className='max-w-md mx-auto relative h-screen bg-black'>
             {/*stories list */}
@@ -62,7 +81,7 @@ const Stories = () => {
                     key={story.id}
                     onClick={() => openStory(index)}
                     className='flex-shrink-0 w-16 h-16 rounded-full 
-                    border-2 border-purple-500 p-0.5 relative'
+                    border-2 border-purple-500 p-0.5 relative space-x-1'
                     >
                         <img 
                          src={story.userAvatar}
@@ -78,7 +97,10 @@ const Stories = () => {
 
             {/*Story viewer */}
             {isViewerOpen && (
-                <div className='fixed inset-0 bg-black'>
+                <div className='fixed inset-0 bg-black'
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                >
                     {/*Progress bar */}
                     <div className='absolute top-4 left-0 right-0 flex space-x-1 p-4 z-10'>
                         {storiesData.map((_,index) => (
@@ -97,6 +119,16 @@ const Stories = () => {
                             </div>
                         ))}
                     </div>
+
+
+                    {/* Caption Overlay */}
+                    {currentStory.caption && (
+                    <div className="absolute bottom-20 left-0 right-0 px-4 text-center">
+                        <p className="text-white text-xl font-medium bg-black/50 rounded-lg p-2 inline-block">
+                            {currentStory.caption}
+                        </p>
+                    </div>
+                    )}
 
                     {/*Loading state */}
                     {isLoading && (
