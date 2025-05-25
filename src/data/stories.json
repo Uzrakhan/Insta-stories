@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "user": "user1",
+    "image": "https://picsum.photos/200/300?1"
+  },
+  {
+    "id": 2,
+    "user": "user2",
+    "image": "https://picsum.photos/200/300?2"
+  },
+  {
+    "id": 3,
+    "user": "user3",
+    "image": "https://picsum.photos/200/300?3"
+  }
+]
