@@ -6,13 +6,12 @@ const Stories = () => {
     const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [progress, setProgress] = useState(0);
-    const [viewedStories, setViewedStories] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(true)
 
     //auto-advance stories
     useEffect(() => {
         let timer;
-        if (isViewerOpen && progress < 100) {
+        if (isViewerOpen && progress < 100 & !isLoading) {
             timer = setTimeout(() => {
                 setProgress(prev => Math.min(prev + 1, 100))
             }, 50)
@@ -20,28 +19,39 @@ const Stories = () => {
             handleNext();
         }
         return () => clearTimeout(timer)
-    }, [progress, isViewerOpen]);
+    }, [progress, isViewerOpen, isLoading]);
 
 
     const openStory = (index) => {
+        setIsLoading(true)
         setCurrentStoryIndex(index)
         setIsViewerOpen(true)
-        setViewedStories(prev => [...prev, storiesData[index].id])
+        setProgress(0)
     }
 
     const handleNext = () => {
-        setProgress(0)
         if (currentStoryIndex < storiesData.length - 1) {
+            setIsLoading(true)
+            setProgress(0)
             setCurrentStoryIndex(prev => prev + 1);
-            setViewedStories(prev => [...prev, storiesData[currentStoryIndex + 1].id])
         }else {
             setIsViewerOpen(false)
         }
     }
 
     const handlePrev = () => {
-        setProgress(0);
-        setCurrentStoryIndex(prev => Math.min(prev - 1, 0))
+        if (currentStoryIndex === 0) {
+            setIsViewerOpen(false)
+        } else {
+            setIsLoading(true);
+            setProgress(0);
+            setCurrentStoryIndex(prev => prev - 1);
+        }
+    }
+
+    const handleImgLoad = () => {
+        setIsLoading(false);
+        setProgress(0)
     }
     return (
         <div className='max-w-md mx-auto relative h-screen bg-black'>
@@ -52,13 +62,16 @@ const Stories = () => {
                     key={story.id}
                     onClick={() => openStory(index)}
                     className='flex-shrink-0 w-16 h-16 rounded-full 
-                    border-2 border-purple-500 p-0.5'
+                    border-2 border-purple-500 p-0.5 relative'
                     >
                         <img 
-                         src={story.image}
-                         alt={story.user}
+                         src={story.userAvatar}
+                         alt={story.username}
                          className='w-full h-full rounded-full object-cover'
                         />
+                        {story.viewed && (
+                            <div className="absolute inset-0 bg-black/50 rounded-full" />
+                        )}
                     </button>
                 ))}
             </div>
@@ -67,7 +80,7 @@ const Stories = () => {
             {isViewerOpen && (
                 <div className='fixed inset-0 bg-black'>
                     {/*Progress bar */}
-                    <div className='absolute top-4 left-0 right-0 flex space-x-1 p-4'>
+                    <div className='absolute top-4 left-0 right-0 flex space-x-1 p-4 z-10'>
                         {storiesData.map((_,index) => (
                             <div
                             key={index}
@@ -85,22 +98,35 @@ const Stories = () => {
                         ))}
                     </div>
 
+                    {/*Loading state */}
+                    {isLoading && (
+                        <div className='absolute inset-0 flex items-center justify-center z-30'>
+                            <div className='w-12 h-12 border-4 border-white/30 rounded-full 
+                                animate-spin border-t-transparent'/>
+                        </div>
+                    )}
 
                     {/*story content */}
-                    <div className='flex h-full'>
+                    <div className='absolute inset-0 flex z-20'>
                         <button 
                          onClick={handlePrev}
-                         className='w-1/2 h-full active:bg-gray-800/20'
+                         className='w-1/2 h-full active:bg-gray-800/20 cursor-default'
+                         aria-label="Previous story"
                         />
                         <button 
                         onClick={handleNext}
-                        className='w-1/2 h-full active:bg-gray-800/20'
+                        className='w-1/2 h-full active:bg-gray-800/20 cursor-default'
+                        aria-label="Next story"
                         />
                     </div>
                     <img 
-                     src={storiesData[currentStoryIndex].image}
+                     src={storiesData[currentStoryIndex].storyImage}
                      alt='story'
-                     className="absolute inset-0 w-full h-full object-contain"
+                     className={`aboslute inset-0 w-full h-full object-contain z-0 
+                        ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300
+                        `}
+                     onLoad={handleImgLoad}
+                     onError={() => setIsLoading(false)}
                     />
                 </div>
             )}

@@ -1,17 +1,72 @@
 [
   {
     "id": 1,
-    "user": "user1",
-    "image": "https://picsum.photos/200/300?1"
+    "username": "adventure_seeker",
+    "userAvatar": "https://i.pravatar.cc/150?img=1",
+    "storyImage": "https://picsum.photos/300/500?nature",
+    "viewed": false
   },
   {
     "id": 2,
-    "user": "user2",
-    "image": "https://picsum.photos/200/300?2"
+    "username": "foodie_chronicles",
+    "userAvatar": "https://i.pravatar.cc/150?img=3",
+    "storyImage": "https://picsum.photos/300/500?food",
+    "viewed": false
   },
   {
     "id": 3,
-    "user": "user3",
-    "image": "https://picsum.photos/200/300?3"
+    "username": "tech_guru",
+    "userAvatar": "https://i.pravatar.cc/150?img=5",
+    "storyImage": "https://picsum.photos/300/500?tech",
+    "viewed": true
+  },
+  {
+    "id": 4,
+    "username": "travel_diaries",
+    "userAvatar": "https://i.pravatar.cc/150?img=7",
+    "storyImage": "https://picsum.photos/300/500?travel",
+    "viewed": false
+  },
+  {
+    "id": 5,
+    "username": "fitness_freak",
+    "userAvatar": "https://i.pravatar.cc/150?img=9",
+    "storyImage": "https://picsum.photos/300/500?gym",
+    "viewed": false
+  },
+  {
+    "id": 6,
+    "username": "pet_lover",
+    "userAvatar": "https://i.pravatar.cc/150?img=11",
+    "storyImage": "https://picsum.photos/300/500?pets",
+    "viewed": false
+  },
+  {
+    "id": 7,
+    "username": "fashionista",
+    "userAvatar": "https://i.pravatar.cc/150?img=13",
+    "storyImage": "https://picsum.photos/300/500?fashion",
+    "viewed": false
+  },
+  {
+    "id": 8,
+    "username": "music_maven",
+    "userAvatar": "https://i.pravatar.cc/150?img=15",
+    "storyImage": "https://picsum.photos/300/500?music",
+    "viewed": false
+  },
+  {
+    "id": 9,
+    "username": "bookworm",
+    "userAvatar": "https://i.pravatar.cc/150?img=17",
+    "storyImage": "https://picsum.photos/300/500?books",
+    "viewed": false
+  },
+  {
+    "id": 10,
+    "username": "art_lover",
+    "userAvatar": "https://i.pravatar.cc/150?img=19",
+    "storyImage": "https://picsum.photos/300/500?art",
+    "viewed": false
   }
 ]
