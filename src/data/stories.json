@@ -2,81 +2,106 @@
   {
     "id": 1,
     "username": "adventure_seeker",
-    "userAvatar": "https://i.pravatar.cc/150?img=1",
-    "storyImage": "https://picsum.photos/300/500?nature",
-    "caption": "Exploring the wild! 🌿",
-    "viewed": false
+    "avatar": "https://i.pravatar.cc/150?img=1",
+    "stories": [
+      {
+        "id": 1,
+        "type": "image",
+        "media": "https://images.unsplash.com/photo-1519821172144-4f87d85de2a1?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "caption": "Exploring the wild! 🌿",
+        "viewed": false
+      },
+      {
+        "id": 2,
+        "type": "image",
+        "media": "https://plus.unsplash.com/premium_photo-1690574169354-d6cc4299cf84?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "caption": "Mountain trekking! ⛰️",
+        "viewed": false
+      }
+    ]
   },
   {
     "id": 2,
     "username": "foodie_chronicles",
-    "userAvatar": "https://i.pravatar.cc/150?img=3",
-    "storyImage": "https://picsum.photos/300/500?food",
-    "caption": "Delicious food!",
-    "viewed": false
+    "avatar": "https://i.pravatar.cc/150?img=3",
+    "stories": [
+      {
+        "id": 1,
+        "type": "image",
+        "media": "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "caption": "New recipe! 🍳",
+        "viewed": false
+      },
+      {
+        "id": 2,
+        "type": "image",
+        "media": "https://plus.unsplash.com/premium_photo-1675252369719-dd52bc69c3df?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D",
+        "caption": "Cheat day!!",
+        "viewed": false
+      }
+    ]
   },
   {
     "id": 3,
     "username": "tech_guru",
-    "userAvatar": "https://i.pravatar.cc/150?img=5",
-    "storyImage": "https://picsum.photos/300/500?tech",
-    "caption": "Tech is the best!!",
-    "viewed": true
+    "avatar": "https://i.pravatar.cc/150?img=5",
+    "stories": [
+      {
+        "id": 1,
+        "type": "image",
+        "media": "https://picsum.photos/300/500?tech",
+        "caption": "Latest gadgets! 📱",
+        "viewed": true
+      },
+      {
+        "id": 2,
+        "type": "video",
+        "media": "/videos/coding.mp4",
+        "caption": "Late night coding session 💻",
+        "viewed": false
+      }
+    ]
   },
   {
     "id": 4,
     "username": "travel_diaries",
-    "userAvatar": "https://i.pravatar.cc/150?img=7",
-    "storyImage": "https://picsum.photos/300/500?travel",
-    "caption": "Wanderlust",
-    "viewed": false
+    "avatar": "https://i.pravatar.cc/150?img=7",
+    "stories": [
+      {
+        "id": 1,
+        "type": "image",
+        "media": "https://picsum.photos/300/500?paris",
+        "caption": "Paris nights 🌃",
+        "viewed": false
+      },
+      {
+        "id": 2,
+        "type": "image",
+        "media": "https://picsum.photos/300/500?beach",
+        "caption": "Sunset vibes 🌅",
+        "viewed": false
+      }
+    ]
   },
   {
     "id": 5,
-    "username": "fitness_freak",
-    "userAvatar": "https://i.pravatar.cc/150?img=9",
-    "storyImage": "https://picsum.photos/300/500?gym",
-    "caption": "Take care of your body todayyyy",
-    "viewed": false
-  },
-  {
-    "id": 6,
-    "username": "pet_lover",
-    "userAvatar": "https://i.pravatar.cc/150?img=11",
-    "storyImage": "https://picsum.photos/300/500?pets",
-    "caption": "I love pets",
-    "viewed": false
-  },
-  {
-    "id": 7,
-    "username": "fashionista",
-    "userAvatar": "https://i.pravatar.cc/150?img=13",
-    "storyImage": "https://picsum.photos/300/500?fashion",
-    "caption": "One day i will rule fashion !!!!",
-    "viewed": false
-  },
-  {
-    "id": 8,
-    "username": "music_maven",
-    "userAvatar": "https://i.pravatar.cc/150?img=15",
-    "storyImage": "https://picsum.photos/300/500?music",
-    "caption": "Music",
-    "viewed": false
-  },
-  {
-    "id": 9,
-    "username": "bookworm",
-    "userAvatar": "https://i.pravatar.cc/150?img=17",
-    "storyImage": "https://picsum.photos/300/500?books",
-    "caption": "Books are me bestieee",
-    "viewed": false
-  },
-  {
-    "id": 10,
     "username": "art_lover",
-    "userAvatar": "https://i.pravatar.cc/150?img=19",
-    "storyImage": "https://picsum.photos/300/500?art",
-    "caption": "Art is for life..",
-    "viewed": false
+    "avatar": "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "stories": [
+      {
+        "id": 1,
+        "type": "image",
+        "media": "https://images.unsplash.com/photo-1506795213373-430e921fe2ed?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "caption": "Saudi arabia",
+        "viewed": false
+      },
+      {
+        "id": 2,
+        "type": "image",
+        "media": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "caption": "Just started my day...",
+        "viewed": false
+      }
+    ]
   }
 ]
